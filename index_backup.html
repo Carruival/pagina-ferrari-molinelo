@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Ferrari Racing Game - Simulador de Estrategias F1</title>
+    <meta name="title" content="Ferrari Racing Game - Simulador de Estrategias F1">
+    <meta name="description" content="Simulador profesional de estrategias de F1 con calculadora avanzada de neumáticos y combustible. Gestiona pilotos, resultados y circuitos en tiempo real.">
+    <meta name="keywords" content="Ferrari, F1, Formula 1, simulador, estrategia, carreras, neumáticos, combustible, pilotos">
+    <meta name="author" content="Álvaro Molinelli">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ferrari Racing Game - Simulador de Estrategias F1">
+    <meta property="og:description" content="Simulador profesional de estrategias de F1 con calculadora avanzada de neumáticos y combustible.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/dc143c/ffffff?text=Ferrari+Racing+Game">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:site_name" content="Ferrari Racing Game">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Ferrari Racing Game - Simulador de Estrategias F1">
+    <meta property="twitter:description" content="Simulador profesional de estrategias de F1 con calculadora avanzada de neumáticos y combustible.">
+    <meta property="twitter:image" content="https://via.placeholder.com/1200x630/dc143c/ffffff?text=Ferrari+Racing+Game">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏎️</text></svg>">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./assets/css/main.css" as="style">
+    <link rel="preload" href="./assets/js/main.js" as="script">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Ferrari Racing Game",
+        "description": "Simulador profesional de estrategias de F1 con calculadora avanzada de neumáticos y combustible",
+        "url": "https://yourdomain.com",
+        "author": {
+            "@type": "Person",
+            "name": "Álvaro Molinelli"
+        },
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        }
+    }
+    </script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- Skip Link for Screen Readers -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Main Application Container -->
+    <div id="app" role="application" aria-label="Ferrari Racing Game">
+        <div class="min-h-screen flex items-center justify-center">
+            <div class="text-center">
+                <div class="spinner mx-auto mb-4" aria-hidden="true"></div>
+                <h1 class="text-5xl font-bold text-red-600 mb-4">FERRARI</h1>
+                <p class="text-zinc-400">Inicializando aplicación...</p>
+                <div class="mt-4 max-w-xs mx-auto">
+                    <div class="progress-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Landmark -->
+    <main id="main-content" tabindex="-1"></main>
+
+    <!-- JavaScript Modules -->
+    <script type="module" src="./assets/js/main.js"></script>
+    
+    <!-- Fallback for browsers without module support -->
+    <script nomodule>
+        document.getElementById('app').innerHTML = `
+            <div class="min-h-screen flex items-center justify-center p-4">
+                <div class="card max-w-md w-full text-center">
+                    <h1 class="text-3xl font-bold text-red-600 mb-4">FERRARI</h1>
+                    <div class="error-message">
+                        <p>Tu navegador no soporta JavaScript moderno.</p>
+                        <p class="mt-2 text-sm">Por favor actualiza tu navegador para usar esta aplicación.</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    </script>
+
+    <!-- Analytics placeholder (add your analytics code here) -->
+    <script>
+        // Legacy code removed - application now uses modern modular architecture
+        console.log('Ferrari Racing Game v2.0 - Enhanced with modern architecture');
+    </script>
+    
+    <!-- Performance monitoring -->
+    <script>
+        // Basic performance monitoring
+        window.addEventListener('load', () => {
+            if (window.performance && window.performance.timing) {
+                const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+            }
+        });
+    </script>
+</body>
+</html>
+            'ABU': { name: 'Abu Dhabi', length: 5.410, laps: 25, tyreWear: 50 },
+            'AUS': { name: 'Australia', length: 5.301, laps: 28, tyreWear: 40 },
+            'AUT': { name: 'Austria', length: 4.044, laps: 34, tyreWear: 60 },
+            'AZE': { name: 'Azerbaijan', length: 6.049, laps: 23, tyreWear: 45 },
+            'BAH': { name: 'Bahrain', length: 4.726, laps: 29, tyreWear: 60 },
+            'BEL': { name: 'Belgium', length: 7.041, laps: 21, tyreWear: 60 },
+            'BRA': { name: 'Brazil', length: 3.971, laps: 34, tyreWear: 60 },
+            'CAN': { name: 'Canada', length: 4.341, laps: 31, tyreWear: 45 },
+            'CHN': { name: 'China', length: 5.442, laps: 27, tyreWear: 80 },
+            'EUR': { name: 'Europe', length: 5.590, laps: 25, tyreWear: 45 },
+            'FRA': { name: 'France', length: 5.881, laps: 24, tyreWear: 80 },
+            'GBR': { name: 'Great Britain', length: 5.751, laps: 24, tyreWear: 65 },
+            'GER': { name: 'Germany', length: 4.179, laps: 33, tyreWear: 50 },
+            'HUN': { name: 'Hungary', length: 3.498, laps: 39, tyreWear: 30 },
+            'ITA': { name: 'Italy', length: 5.401, laps: 25, tyreWear: 35 },
+            'JAP': { name: 'Japan', length: 5.058, laps: 27, tyreWear: 70 },
+            'MAL': { name: 'Malaysia', length: 5.536, laps: 27, tyreWear: 85 },
+            'MEX': { name: 'Mexico', length: 4.308, laps: 35, tyreWear: 60 },
+            'MON': { name: 'Monaco', length: 4.015, laps: 29, tyreWear: 20 },
+            'RUS': { name: 'Russia', length: 6.077, laps: 23, tyreWear: 50 },
+            'SIN': { name: 'Singapore', length: 5.049, laps: 30, tyreWear: 45 },
+            'SPA': { name: 'Spain', length: 4.457, laps: 31, tyreWear: 85 },
+            'TUR': { name: 'Turkey', length: 5.162, laps: 27, tyreWear: 90 },
+            'USA': { name: 'USA', length: 4.602, laps: 30, tyreWear: 65 }
+        };
+
+        let state = {
+            isLoggedIn: false,
+            username: '',
+            isAdmin: false,
+            showRegister: false,
+            currentSection: 'chat',
+            users: {},
+            messages: [],
+            drivers: [],
+            results: [],
+            circuits: [],
+            customStats: [],
+            filterCategory: 'Todas',
+            editingDriver: null,
+            editingResult: null,
+            editingCircuit: null,
+            editingStat: null,
+            strategy: {
+                circuit: 'FRA',
+                tyrePoints: 49,
+                fuelPoints: 100,
+                stints: [{ compound: 'M', laps: 6, boost: 'neutral' }]
+            }
+        };
+
+        const categories = ['F1', 'F2', 'F3', 'F4', 'F5', 'K6'];
+
+        const getFlag = (code) => {
+            if (!code || code.length !== 2) return '🏁';
+            return String.fromCodePoint(...code.toUpperCase().split('').map(c => 127397 + c.charCodeAt()));
+        };
+
+function calculateTyreWear(circuit, compound, laps, tyrePoints) {
+    const c = circuitsData[circuit];
+    if (!c) return { baseWear: 0, remaining: 100 };
+
+    const Te = tyrePoints;     // Puntos de neumático del usuario
+    const Tw = c.tyreWear;     // Desgaste del circuito (%)
+    const D = c.length;        // Longitud del circuito (km)
+    const D0 = 50;             // Constante de calibración
+    const N = laps;            // Vueltas del stint
+
+    // ====== W base (Medium) ======
+    const step1 = Te / 1.5;
+    const step2 = Math.pow(step1, -0.0778);
+    const step3 = 1.43 * step2;
+    const step4 = 0.00364 * Tw + 0.354;
+    const step5 = step3 * step4;
+    const step6 = D * 1.384612;
+    const step7 = step5 * step6;
+    const step8 = step7 * (200 - D0);
+    const W_M = (step8 / 10000) * 100; // Desgaste base M
+
+    // ====== Relaciones ajustadas (finales) ======
+    const W_SS = W_M * 2.06;    // Superblando
+    const W_S  = W_SS * 0.642;  // Blando (fino, corregido +1%)
+    const W_H  = W_SS * 0.375;  // Duro (perfecto)
+
+    // ====== Selección de compuesto ======
+    let Wc;
+    switch (compound.toUpperCase()) {
+        case 'SS': Wc = W_SS; break;
+        case 'S':  Wc = W_S;  break;
+        case 'M':  Wc = W_M;  break;
+        case 'H':  Wc = W_H;  break;
+        default:   Wc = W_M;  break;
+    }
+
+    // ====== Desgaste total (modelo original) ======
+    const remaining = 100 * Math.exp(-1.18 * (Wc / 100) * N);
+    const totalWear = 100 - remaining;
+
+    return {
+        baseWear: W_M.toFixed(3),
+        baseWearWithCompound: Wc.toFixed(3),
+        remaining: remaining.toFixed(2),
+        totalWear: totalWear.toFixed(2)
+    };
+}
+
+
+
+
+        function calculateFuel(circuit, fuelPoints) {
+            const c = circuitsData[circuit];
+            if (!c) return 0;
+            const fuel = 98.45644 * Math.pow(fuelPoints, -0.088463) * (c.length * c.laps) / 139.771;
+            return fuel.toFixed(2);
+        }
+
+        function calculateStintFuel(circuit, fuelPoints, laps, boost) {
+            const c = circuitsData[circuit];
+            if (!c) return 0;
+            
+            const fuelPerLap = (98.45644 * Math.pow(fuelPoints, -0.088463) * c.length) / 139.771;
+            let stintFuel = fuelPerLap * laps;
+            
+            const boostMultipliers = {
+                'muy-alto': 1.04,
+                'alto': 1.0161,
+                'neutral': 1,
+                'bajo': 0.988,
+                'muy-bajo': 0.9799
+            };
+            
+            stintFuel *= (boostMultipliers[boost] || 1);
+            return stintFuel;
+        }
+
+        async function saveStrategy() {
+            if (state.username && state.isLoggedIn) await set(ref(db, `strategies/${state.username}`), state.strategy);
+        }
+
+        function initFirebase() {
+            onValue(ref(db, 'users'), (snapshot) => {
+                const data = snapshot.val();
+                if (!data || !data['admin_igp']) {
+                    set(ref(db, 'users/admin_igp'), { password: 'Kirito49', isAdmin: true });
+                }
+                state.users = data || { 'admin_igp': { password: 'Kirito49', isAdmin: true } };
+            });
+            onValue(ref(db, 'messages'), (snapshot) => {
+                state.messages = snapshot.val() ? Object.values(snapshot.val()).sort((a, b) => a.timestamp - b.timestamp) : [];
+                if (state.currentSection === 'chat') render();
+            });
+            onValue(ref(db, 'drivers'), (snapshot) => {
+                state.drivers = snapshot.val() ? Object.values(snapshot.val()) : [];
+                if (state.currentSection === 'drivers') render();
+            });
+            onValue(ref(db, 'results'), (snapshot) => {
+                state.results = snapshot.val() ? Object.values(snapshot.val()) : [];
+                if (state.currentSection === 'results') render();
+            });
+            onValue(ref(db, 'circuits'), (snapshot) => {
+                state.circuits = snapshot.val() ? Object.values(snapshot.val()) : [];
+                if (state.currentSection === 'circuits') render();
+            });
+            onValue(ref(db, 'customStats'), (snapshot) => {
+                state.customStats = snapshot.val() ? Object.values(snapshot.val()) : [
+                    { id: 1, name: 'Poles', icon: '⚡' }, { id: 2, name: 'V. Rápidas', icon: '🏁' }
+                ];
+                if (state.currentSection === 'drivers') render();
+            });
+        }
+
+        function loadUserStrategy() {
+            if (state.username && state.isLoggedIn) {
+                onValue(ref(db, `strategies/${state.username}`), (snapshot) => {
+                    const data = snapshot.val();
+                    if (data) {
+                        state.strategy = data;
+                        if (state.currentSection === 'strategy') render();
+                    }
+                });
+            }
+        }
+
+        function render() {
+            const appDiv = document.getElementById('app');
+            if (!state.isLoggedIn) {
+                if (state.showRegister) {
+                    appDiv.innerHTML = `<div class="min-h-screen flex items-center justify-center p-4"><div class="bg-zinc-900 rounded-2xl p-8 max-w-md w-full border border-red-900/30 shadow-2xl"><div class="text-center mb-8"><h1 class="text-5xl font-bold text-red-600 mb-2">FERRARI</h1><p class="text-zinc-400">Crear Cuenta</p></div><form id="registerForm" class="space-y-4"><input name="username" placeholder="Usuario" class="w-full bg-zinc-800 text-white px-4 py-3 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" required /><input name="password" type="password" placeholder="Contraseña (min 6)" class="w-full bg-zinc-800 text-white px-4 py-3 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" required /><input name="confirm" type="password" placeholder="Confirmar" class="w-full bg-zinc-800 text-white px-4 py-3 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" required /><button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg">CREAR</button><button type="button" id="backToLogin" class="w-full text-zinc-400 hover:text-white">← Volver</button></form></div></div>`;
+                    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const username = e.target.username.value, password = e.target.password.value, confirm = e.target.confirm.value;
+                        if (state.users[username]) { alert('Usuario ya existe'); return; }
+                        if (password !== confirm) { alert('Las contraseñas no coinciden'); return; }
+                        if (password.length < 6) { alert('Mínimo 6 caracteres'); return; }
+                        await set(ref(db, `users/${username}`), { password, isAdmin: false });
+                        alert('¡Cuenta creada!');
+                        state.showRegister = false;
+                        render();
+                    });
+                    document.getElementById('backToLogin').addEventListener('click', () => { state.showRegister = false; render(); });
+                } else {
+                    appDiv.innerHTML = `<div class="min-h-screen flex items-center justify-center p-4"><div class="bg-zinc-900 rounded-2xl p-8 max-w-md w-full border border-red-900/30 shadow-2xl"><div class="text-center mb-8"><h1 class="text-5xl font-bold text-red-600 mb-2">FERRARI</h1><p class="text-zinc-400">Racing Game Manager</p></div><form id="loginForm" class="space-y-4"><input name="username" placeholder="Usuario" class="w-full bg-zinc-800 text-white px-4 py-3 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" required /><input name="password" type="password" placeholder="Contraseña" class="w-full bg-zinc-800 text-white px-4 py-3 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" required /><button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg">ENTRAR</button><button type="button" id="showRegister" class="w-full text-zinc-400 hover:text-white">¿No tienes cuenta? Regístrate</button></form></div></div>`;
+                    document.getElementById('loginForm').addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const username = e.target.username.value, password = e.target.password.value, user = state.users[username];
+                        if (user && user.password === password) {
+                            state.username = username;
+                            state.isAdmin = user.isAdmin === true;
+                            state.isLoggedIn = true;
+                            loadUserStrategy();
+                            render();
+                        } else alert('Usuario o contraseña incorrectos');
+                    });
+                    document.getElementById('showRegister').addEventListener('click', () => { state.showRegister = true; render(); });
+                }
+                return;
+            }
+            appDiv.innerHTML = `<div class="bg-red-600 p-4 shadow-lg"><div class="max-w-7xl mx-auto flex justify-between items-center"><div><h1 class="text-3xl font-bold">FERRARI RACING</h1><p class="text-red-100 text-sm">${state.username} ${state.isAdmin ? '👑' : ''}</p></div><button id="logoutBtn" class="bg-red-700 hover:bg-red-800 px-4 py-2 rounded-lg">Salir</button></div></div><div class="bg-zinc-900 border-b border-zinc-800"><div class="max-w-7xl mx-auto flex overflow-x-auto"><button data-section="chat" class="section-btn px-6 py-4 border-b-2 ${state.currentSection === 'chat' ? 'border-red-600 text-red-600' : 'border-transparent text-zinc-400'}">💬 Chat</button><button data-section="strategy" class="section-btn px-6 py-4 border-b-2 ${state.currentSection === 'strategy' ? 'border-red-600 text-red-600' : 'border-transparent text-zinc-400'}">🏁 Estrategia</button><button data-section="circuits" class="section-btn px-6 py-4 border-b-2 ${state.currentSection === 'circuits' ? 'border-red-600 text-red-600' : 'border-transparent text-zinc-400'}">🏁 Circuitos</button><button data-section="results" class="section-btn px-6 py-4 border-b-2 ${state.currentSection === 'results' ? 'border-red-600 text-red-600' : 'border-transparent text-zinc-400'}">🏆 Resultados</button><button data-section="drivers" class="section-btn px-6 py-4 border-b-2 ${state.currentSection === 'drivers' ? 'border-red-600 text-red-600' : 'border-transparent text-zinc-400'}">👥 Pilotos</button><div class="fixed bottom-2 right-2 text-xs text-zinc-600">Hecho por Álvaro Molinelli</div>
+</div></div><div class="max-w-7xl mx-auto p-4" id="content">${renderSection()}</div>`;
+            document.getElementById('logoutBtn').addEventListener('click', () => { state.isLoggedIn = false; state.username = ''; state.isAdmin = false; render(); });
+            document.querySelectorAll('.section-btn').forEach(btn => btn.addEventListener('click', (e) => { state.currentSection = e.target.dataset.section; render(); }));
+            attachEventListeners();
+        }
+
+        function renderSection() {
+            switch (state.currentSection) {
+                case 'chat': return renderChat();
+                case 'strategy': return renderStrategy();
+                case 'drivers': return renderDrivers();
+                case 'results': return renderResults();
+                case 'circuits': return renderCircuits();
+                default: return '';
+            }
+        }
+
+        function renderStrategy() {
+            const totalLaps = state.strategy.stints.reduce((sum, s) => sum + s.laps, 0);
+            const totalFuel = state.strategy.stints.reduce((sum, s) => sum + parseFloat(calculateStintFuel(state.strategy.circuit, state.strategy.fuelPoints, s.laps, s.boost)), 0).toFixed(2);
+            
+            return `<div class="bg-zinc-900 rounded-lg p-6"><h2 class="text-3xl font-bold text-red-600 mb-6">🏁 Planificador de Estrategia</h2><div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6"><div class="bg-zinc-800 rounded-lg p-4"><h3 class="text-xl font-bold mb-4">Configuración</h3><div class="space-y-4"><div><label class="block text-zinc-300 mb-2">Circuito</label><select id="circuitSelect" class="w-full bg-zinc-900 px-4 py-2 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none">${Object.entries(circuitsData).map(([code, data]) => `<option value="${code}" ${state.strategy.circuit === code ? 'selected' : ''}>${data.name} (${code})</option>`).join('')}</select></div><div><label class="block text-zinc-300 mb-2">Puntos de Neumático</label><input id="tyrePointsInput" type="number" value="${state.strategy.tyrePoints}" class="w-full bg-zinc-900 px-4 py-2 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" /></div><div><label class="block text-zinc-300 mb-2">Puntos de Combustible</label><input id="fuelPointsInput" type="number" value="${state.strategy.fuelPoints}" class="w-full bg-zinc-900 px-4 py-2 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" /></div><div><label class="block text-zinc-300 mb-2">Número de Stints</label><input id="stintsInput" type="number" min="1" max="5" value="${state.strategy.stints.length}" class="w-full bg-zinc-900 px-4 py-2 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" /></div></div></div><div class="bg-zinc-800 rounded-lg p-4"><h3 class="text-xl font-bold mb-4">Información del Circuito</h3><div class="space-y-2"><p><span class="text-zinc-400">Longitud:</span> <span class="font-bold">${circuitsData[state.strategy.circuit].length} km</span></p><p><span class="text-zinc-400">Vueltas totales:</span> <span class="font-bold">${circuitsData[state.strategy.circuit].laps}</span></p><p><span class="text-zinc-400">Desgaste de neumáticos:</span> <span class="font-bold">${circuitsData[state.strategy.circuit].tyreWear}%</span></p><p class="pt-4 border-t border-zinc-700"><span class="text-zinc-400">Combustible total:</span> <span class="text-2xl font-bold text-red-500">${totalFuel} L</span></p></div></div></div><div class="bg-zinc-800 rounded-lg p-4"><h3 class="text-xl font-bold mb-4">Stints</h3><div class="space-y-4">${state.strategy.stints.map((stint, i) => { const wearData = calculateTyreWear(state.strategy.circuit, stint.compound, stint.laps, state.strategy.tyrePoints); const stintFuel = calculateStintFuel(state.strategy.circuit, state.strategy.fuelPoints, stint.laps, stint.boost); return `<div class="bg-zinc-900 rounded-lg p-4"><div class="flex items-center gap-4 mb-4"><span class="text-2xl font-bold text-red-500">Stint ${i + 1}</span>${state.strategy.stints.length > 1 ? `<button class="removeStint text-red-400 hover:text-red-300" data-index="${i}">🗑️</button>` : ''}</div><div class="grid grid-cols-2 md:grid-cols-4 gap-4"><button class="compoundBtn compound-ss px-4 py-3 rounded-lg font-bold ${stint.compound === 'SS' ? 'ring-4 ring-white' : 'opacity-50'}" data-index="${i}" data-compound="SS">SS</button><button class="compoundBtn compound-s px-4 py-3 rounded-lg font-bold ${stint.compound === 'S' ? 'ring-4 ring-white' : 'opacity-50'}" data-index="${i}" data-compound="S">S</button><button class="compoundBtn compound-m px-4 py-3 rounded-lg font-bold ${stint.compound === 'M' ? 'ring-4 ring-zinc-800' : 'opacity-50'}" data-index="${i}" data-compound="M">M</button><button class="compoundBtn compound-h px-4 py-3 rounded-lg font-bold ${stint.compound === 'H' ? 'ring-4 ring-white' : 'opacity-50'}" data-index="${i}" data-compound="H">H</button></div><div class="mt-4 flex items-center gap-4"><label class="text-zinc-300">Vueltas:</label><input class="lapsInput flex-1 bg-zinc-800 px-4 py-2 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" type="number" min="1" value="${stint.laps}" data-index="${i}" /></div><div class="mt-4"><label class="block text-zinc-300 mb-2">Empuje:</label><select class="boostSelect w-full bg-zinc-800 px-4 py-2 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" data-index="${i}"><option value="muy-alto" ${stint.boost === 'muy-alto' ? 'selected' : ''}>Muy Alto (+4%)</option><option value="alto" ${stint.boost === 'alto' ? 'selected' : ''}>Alto (+1.61%)</option><option value="neutral" ${stint.boost === 'neutral' ? 'selected' : ''}>Neutral</option><option value="bajo" ${stint.boost === 'bajo' ? 'selected' : ''}>Bajo (-1.2%)</option><option value="muy-bajo" ${stint.boost === 'muy-bajo' ? 'selected' : ''}>Muy Bajo (-2.01%)</option></select></div><div class="mt-4 p-3 bg-zinc-800 rounded-lg space-y-2"><p class="text-zinc-400 text-sm">Desgaste base (W): <span class="text-yellow-500 font-bold">${wearData.baseWear}%</span></p><p class="text-zinc-400 text-sm">W con compuesto ${stint.compound}: <span class="text-orange-500 font-bold">${wearData.baseWearWithCompound}%</span></p><p class="text-zinc-400 text-sm">Neumático restante: <span class="text-green-500 font-bold text-lg">${wearData.remaining}%</span></p><p class="text-zinc-400 text-sm">Combustible stint: <span class="text-blue-500 font-bold text-lg">${parseFloat(stintFuel).toFixed(2)} L</span></p></div></div>`; }).join('')}</div>${state.strategy.stints.length < 5 ? `<button id="addStint" class="mt-4 w-full bg-red-600 hover:bg-red-700 px-4 py-3 rounded-lg font-bold">+ Añadir Stint</button>` : ''}<div class="mt-6 p-4 bg-gradient-to-r from-red-900 to-red-800 rounded-lg"><div class="flex justify-between items-center"><span class="text-xl font-bold">Total de vueltas:</span><span class="text-3xl font-bold">${totalLaps} / ${circuitsData[state.strategy.circuit].laps}</span></div></div></div></div>`;
+        }
+
+        function renderChat() {
+            return `<div class="bg-zinc-900 rounded-lg p-4 h-[600px] flex flex-col"><h2 class="text-2xl font-bold text-red-600 mb-4">Chat 🔥</h2><div class="flex-1 overflow-y-auto space-y-3 mb-4">${state.messages.map(m => `<div class="bg-zinc-800 rounded-lg p-3"><div class="flex justify-between items-start mb-1"><span class="font-bold text-red-500">${m.user}</span><span class="text-xs text-zinc-500">${m.time}</span></div><p class="text-zinc-200">${m.text}</p></div>`).join('')}</div><form id="chatForm" class="flex gap-2"><input name="message" placeholder="Mensaje..." class="flex-1 bg-zinc-800 px-4 py-2 rounded-lg border border-zinc-700 focus:border-red-600 focus:outline-none" /><button type="submit" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg">Enviar</button></form></div>`;
+        }
+
+        function renderDrivers() {
+            const filteredDrivers = state.drivers.filter(d => state.filterCategory === 'Todas' || d.category === state.filterCategory);
+            return `<div class="bg-zinc-900 rounded-lg p-6"><div class="flex justify-between items-center mb-6"><h2 class="text-2xl font-bold text-red-600">Pilotos</h2>${state.isAdmin ? `<div class="flex gap-2"><button id="toggleStats" class="bg-zinc-700 px-4 py-2 rounded-lg">⚙️</button><button id="addDriverBtn" class="bg-red-600 px-4 py-2 rounded-lg">+</button></div>` : ''}</div>${state.editingStat ? `<div class="bg-zinc-800 rounded-lg p-4 mb-4 border-2 border-yellow-600"><h3 class="text-xl font-bold mb-4">⚙️ Estadísticas</h3><form id="addStatForm" class="mb-4"><div class="grid grid-cols-2 gap-4 mb-4"><input name="name" placeholder="Nombre" class="bg-zinc-900 px-3 py-2 rounded" required /><input name="icon" placeholder="Icono" class="bg-zinc-900 px-3 py-2 rounded" /></div><button type="submit" class="bg-green-600 px-4 py-2 rounded">Añadir</button></form><div class="space-y-2">${state.customStats.map(s => `<div class="flex justify-between bg-zinc-900 p-3 rounded"><span>${s.icon} ${s.name}</span><button class="deleteStat text-red-400" data-id="${s.id}">🗑️</button></div>`).join('')}</div></div>` : ''}<div class="flex gap-2 mb-6 overflow-x-auto"><button class="filterBtn px-4 py-2 rounded-lg ${state.filterCategory === 'Todas' ? 'bg-red-600' : 'bg-zinc-800'}" data-category="Todas">Todas</button>${categories.map(c => `<button class="filterBtn px-4 py-2 rounded-lg whitespace-nowrap ${state.filterCategory === c ? 'bg-red-600' : 'bg-zinc-800'}" data-category="${c}">${c}</button>`).join('')}</div>${state.editingDriver === 'new' ? `<form id="driverForm" class="bg-zinc-800 rounded-lg p-4 mb-4 border-2 border-red-600"><h3 class="text-xl font-bold mb-4">Añadir Piloto</h3><div class="grid grid-cols-2 gap-4"><input name="name" placeholder="Nombre" class="bg-zinc-900 px-3 py-2 rounded" required /><input name="number" placeholder="Número" class="bg-zinc-900 px-3 py-2 rounded" required /><input name="nationality" placeholder="Código (IT, ES)" class="bg-zinc-900 px-3 py-2 rounded" required /><select name="category" class="bg-zinc-900 px-3 py-2 rounded">${categories.map(c => `<option>${c}</option>`).join('')}</select><input name="wins" type="number" placeholder="Victorias" value="0" class="bg-zinc-900 px-3 py-2 rounded" /><input name="podiums" type="number" placeholder="Podios" value="0" class="bg-zinc-900 px-3 py-2 rounded" /><input name="points" type="number" placeholder="Puntos" value="0" class="col-span-2 bg-zinc-900 px-3 py-2 rounded" />${state.customStats.map(s => `<input name="stat-${s.id}" type="number" placeholder="${s.icon} ${s.name}" value="0" class="bg-zinc-900 px-3 py-2 rounded" />`).join('')}<button type="submit" class="col-span-2 bg-red-600 px-4 py-2 rounded">Guardar</button><button type="button" id="cancelDriver" class="col-span-2 bg-zinc-700 px-4 py-2 rounded">Cancelar</button></div></form>` : ''}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${filteredDrivers.map(d => `<div class="bg-zinc-800 rounded-lg p-4 border border-zinc-700"><div class="flex justify-between mb-3"><div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="text-3xl font-bold text-red-600">#${d.number}</span><span class="px-2 py-0.5 bg-red-600 rounded text-xs">${d.category}</span></div><h3 class="text-xl font-bold">${d.name}</h3><p class="text-zinc-400 text-sm">${getFlag(d.nationality)} ${d.nationality}</p></div>${state.isAdmin ? `<button class="deleteDriver text-red-400" data-id="${d.id}">🗑️</button>` : ''}</div><div class="grid grid-cols-2 gap-2 text-sm"><div class="bg-zinc-900 p-2 rounded"><p class="text-zinc-400">Victorias</p><p class="text-xl font-bold text-red-500">${d.wins}</p></div><div class="bg-zinc-900 p-2 rounded"><p class="text-zinc-400">Podios</p><p class="text-xl font-bold text-red-500">${d.podiums}</p></div><div class="bg-zinc-900 p-2 rounded col-span-2"><p class="text-zinc-400">Puntos</p><p class="text-2xl font-bold text-red-500">${d.points}</p></div>${state.customStats.map(s => `<div class="bg-zinc-900 p-2 rounded"><p class="text-zinc-400">${s.icon} ${s.name}</p><p class="text-lg font-bold text-red-500">${d.customStats?.[s.id] || 0}</p></div>`).join('')}</div></div>`).join('')}</div></div>`;
+        }
+
+        function renderResults() {
+            return `<div class="bg-zinc-900 rounded-lg p-6"><div class="flex justify-between items-center mb-6"><h2 class="text-2xl font-bold text-red-600">Resultados</h2>${state.isAdmin ? `<button id="addResultBtn" class="bg-red-600 px-4 py-2 rounded-lg">+</button>` : ''}</div>${state.editingResult === 'new' ? `<form id="resultForm" class="bg-zinc-800 rounded-lg p-4 mb-4 border-2 border-red-600"><h3 class="text-xl font-bold mb-4">Añadir Resultado</h3><div class="grid grid-cols-3 gap-4 mb-4"><input name="race" placeholder="Carrera" class="bg-zinc-900 px-3 py-2 rounded" required /><input name="date" placeholder="Fecha" class="bg-zinc-900 px-3 py-2 rounded" required /><select name="category" class="bg-zinc-900 px-3 py-2 rounded">${categories.map(c => `<option>${c}</option>`).join('')}</select></div><div class="space-y-2"><h4 class="font-bold">4 Pilotos</h4>${[1, 2, 3, 4].map(i => `<div class="flex gap-2"><input type="number" value="${i}" class="w-16 bg-zinc-900 px-3 py-2 rounded" readonly /><input name="driver${i}" placeholder="Piloto ${i}" class="flex-1 bg-zinc-900 px-3 py-2 rounded" required /></div>`).join('')}</div><div class="mt-4 flex gap-2"><button type="submit" class="flex-1 bg-red-600 px-4 py-2 rounded">Guardar</button><button type="button" id="cancelResult" class="flex-1 bg-zinc-700 px-4 py-2 rounded">Cancelar</button></div></form>` : ''}<div class="space-y-4">${state.results.map(r => `<div class="bg-zinc-800 rounded-lg p-4"><div class="flex justify-between mb-3"><div><h3 class="text-xl font-bold">${r.race}</h3><div class="flex gap-4 text-sm text-zinc-400 mt-1"><span>${r.date}</span><span class="px-2 py-0.5 bg-red-600 rounded">${r.category}</span></div></div>${state.isAdmin ? `<button class="deleteResult text-red-400" data-id="${r.id}">🗑️</button>` : ''}</div><div class="grid grid-cols-2 md:grid-cols-4 gap-2">${r.positions.map(p => `<div class="flex items-center gap-2 bg-zinc-900 p-2 rounded"><span class="text-2xl font-bold text-red-500">${p.position}°</span><span class="text-sm">${p.driver}</span></div>`).join('')}</div></div>`).join('')}</div></div>`;
+        }
+
+        function renderCircuits() {
+            return `<div class="bg-zinc-900 rounded-lg p-6"><div class="flex justify-between items-center mb-6"><h2 class="text-2xl font-bold text-red-600">Circuitos</h2>${state.isAdmin ? `<button id="addCircuitBtn" class="bg-red-600 px-4 py-2 rounded-lg">+</button>` : ''}</div>${state.editingCircuit === 'new' ? `<form id="circuitForm" class="bg-zinc-800 rounded-lg p-4 mb-4 border-2 border-red-600"><h3 class="text-xl font-bold mb-4">Añadir Circuito</h3><div class="grid grid-cols-2 gap-4"><input name="flag" placeholder="Código (IT)" class="bg-zinc-900 px-3 py-2 rounded" required /><input name="name" placeholder="Nombre" class="bg-zinc-900 px-3 py-2 rounded" required /><input name="country" placeholder="País" class="bg-zinc-900 px-3 py-2 rounded" required /><input name="length" placeholder="Longitud" class="bg-zinc-900 px-3 py-2 rounded" required /><input name="laps" type="number" placeholder="Vueltas" class="bg-zinc-900 px-3 py-2 rounded" required /><textarea name="warmup" placeholder="🔥 Calentamiento" class="col-span-2 bg-zinc-900 px-3 py-2 rounded h-20"></textarea><textarea name="playstyle" placeholder="🎮 Estilo" class="col-span-2 bg-zinc-900 px-3 py-2 rounded h-20"></textarea><textarea name="devPreferences" placeholder="🔧 Desarrollo" class="col-span-2 bg-zinc-900 px-3 py-2 rounded h-20"></textarea><textarea name="idealCorners" placeholder="🏎️ Curvas" class="col-span-2 bg-zinc-900 px-3 py-2 rounded h-20"></textarea><textarea name="optimalStrategies" placeholder="📊 Estrategias" class="col-span-2 bg-zinc-900 px-3 py-2 rounded h-20"></textarea><textarea name="otherTips" placeholder="💡 Consejos" class="col-span-2 bg-zinc-900 px-3 py-2 rounded h-20"></textarea><button type="submit" class="col-span-2 bg-red-600 px-4 py-2 rounded">Guardar</button><button type="button" id="cancelCircuit" class="col-span-2 bg-zinc-700 px-4 py-2 rounded">Cancelar</button></div></form>` : ''}<div class="grid grid-cols-1 gap-4">${state.circuits.map(c => `<div class="bg-zinc-800 rounded-lg p-6 border border-zinc-700"><div class="flex justify-between mb-4"><div class="flex items-center gap-3"><span class="text-4xl">${getFlag(c.flag)}</span><div><h3 class="text-2xl font-bold">${c.name}</h3><p class="text-zinc-400">${c.country}</p></div></div>${state.isAdmin ? `<button class="deleteCircuit text-red-400 text-xl" data-id="${c.id}">🗑️</button>` : ''}</div><div class="grid grid-cols-2 gap-3 text-sm mb-4"><div class="bg-zinc-900 p-3 rounded"><p class="text-zinc-400">Longitud</p><p class="font-bold text-lg">${c.length}</p></div><div class="bg-zinc-900 p-3 rounded"><p class="text-zinc-400">Vueltas</p><p class="font-bold text-lg">${c.laps}</p></div></div>${c.warmup ? `<div class="mb-3 bg-zinc-900 p-3 rounded"><h4 class="text-red-500 font-bold mb-1">🔥 Calentamiento</h4><p class="text-zinc-300 text-sm">${c.warmup}</p></div>` : ''}${c.playstyle ? `<div class="mb-3 bg-zinc-900 p-3 rounded"><h4 class="text-red-500 font-bold mb-1">🎮 Estilo</h4><p class="text-zinc-300 text-sm">${c.playstyle}</p></div>` : ''}${c.devPreferences ? `<div class="mb-3 bg-zinc-900 p-3 rounded"><h4 class="text-red-500 font-bold mb-1">🔧 Desarrollo</h4><p class="text-zinc-300 text-sm">${c.devPreferences}</p></div>` : ''}${c.idealCorners ? `<div class="mb-3 bg-zinc-900 p-3 rounded"><h4 class="text-red-500 font-bold mb-1">🏎️ Curvas</h4><p class="text-zinc-300 text-sm">${c.idealCorners}</p></div>` : ''}${c.optimalStrategies ? `<div class="mb-3 bg-zinc-900 p-3 rounded"><h4 class="text-red-500 font-bold mb-1">📊 Estrategias</h4><p class="text-zinc-300 text-sm">${c.optimalStrategies}</p></div>` : ''}${c.otherTips ? `<div class="mb-3 bg-zinc-900 p-3 rounded"><h4 class="text-red-500 font-bold mb-1">💡 Consejos</h4><p class="text-zinc-300 text-sm">${c.otherTips}</p></div>` : ''}</div>`).join('')}</div></div>`;
+        }
+
+        function attachEventListeners() {
+            const chatForm = document.getElementById('chatForm');
+            if (chatForm) chatForm.addEventListener('submit', async (e) => { e.preventDefault(); const text = e.target.message.value.trim(); if (text) { const id = Date.now(); await set(ref(db, `messages/${id}`), { id, user: state.username, text, time: new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }), timestamp: id }); e.target.message.value = ''; } });
+            
+            const circuitSelect = document.getElementById('circuitSelect');
+            if (circuitSelect) circuitSelect.addEventListener('change', (e) => { state.strategy.circuit = e.target.value; saveStrategy(); render(); });
+            
+            const tyrePointsInput = document.getElementById('tyrePointsInput');
+            if (tyrePointsInput) tyrePointsInput.addEventListener('change', (e) => { state.strategy.tyrePoints = parseInt(e.target.value) || 100; saveStrategy(); render(); });
+            
+            const fuelPointsInput = document.getElementById('fuelPointsInput');
+            if (fuelPointsInput) fuelPointsInput.addEventListener('change', (e) => { state.strategy.fuelPoints = parseInt(e.target.value) || 100; saveStrategy(); render(); });
+            
+            const stintsInput = document.getElementById('stintsInput');
+            if (stintsInput) stintsInput.addEventListener('change', (e) => { const newLength = parseInt(e.target.value) || 1; while (state.strategy.stints.length < newLength) state.strategy.stints.push({ compound: 'M', laps: 10, boost: 'neutral' }); while (state.strategy.stints.length > newLength) state.strategy.stints.pop(); saveStrategy(); render(); });
+            
+            document.querySelectorAll('.compoundBtn').forEach(btn => btn.addEventListener('click', (e) => { const index = parseInt(e.target.dataset.index), compound = e.target.dataset.compound; state.strategy.stints[index].compound = compound; saveStrategy(); render(); }));
+            
+            document.querySelectorAll('.lapsInput').forEach(input => input.addEventListener('change', (e) => { const index = parseInt(e.target.dataset.index); state.strategy.stints[index].laps = parseInt(e.target.value) || 1; saveStrategy(); render(); }));
+            
+            document.querySelectorAll('.boostSelect').forEach(select => select.addEventListener('change', (e) => { const index = parseInt(e.target.dataset.index); state.strategy.stints[index].boost = e.target.value; saveStrategy(); render(); }));
+            
+            const addStint = document.getElementById('addStint');
+            if (addStint) addStint.addEventListener('click', () => { state.strategy.stints.push({ compound: 'M', laps: 10, boost: 'neutral' }); saveStrategy(); render(); });
+            
+            document.querySelectorAll('.removeStint').forEach(btn => btn.addEventListener('click', (e) => { const index = parseInt(e.target.dataset.index); state.strategy.stints.splice(index, 1); saveStrategy(); render(); }));
+            
+            const addDriverBtn = document.getElementById('addDriverBtn');
+            if (addDriverBtn) addDriverBtn.addEventListener('click', () => { state.editingDriver = 'new'; render(); });
+            
+            const cancelDriver = document.getElementById('cancelDriver');
+            if (cancelDriver) cancelDriver.addEventListener('click', () => { state.editingDriver = null; render(); });
+            
+            const driverForm = document.getElementById('driverForm');
+            if (driverForm) driverForm.addEventListener('submit', async (e) => { e.preventDefault(); const customStatsData = {}; state.customStats.forEach(s => { const val = e.target[`stat-${s.id}`]?.value; if (val) customStatsData[s.id] = parseInt(val) || 0; }); const id = Date.now(); await set(ref(db, `drivers/${id}`), { id, name: e.target.name.value, number: e.target.number.value, nationality: e.target.nationality.value, category: e.target.category.value, wins: parseInt(e.target.wins.value) || 0, podiums: parseInt(e.target.podiums.value) || 0, points: parseInt(e.target.points.value) || 0, customStats: customStatsData }); state.editingDriver = null; render(); });
+            
+            document.querySelectorAll('.deleteDriver').forEach(btn => btn.addEventListener('click', async (e) => { if (confirm('¿Eliminar?')) await remove(ref(db, `drivers/${e.target.dataset.id}`)); }));
+            
+            document.querySelectorAll('.filterBtn').forEach(btn => btn.addEventListener('click', (e) => { state.filterCategory = e.target.dataset.category; render(); }));
+            
+            const toggleStats = document.getElementById('toggleStats');
+            if (toggleStats) toggleStats.addEventListener('click', () => { state.editingStat = state.editingStat ? null : 'new'; render(); });
+            
+            const addStatForm = document.getElementById('addStatForm');
+            if (addStatForm) addStatForm.addEventListener('submit', async (e) => { e.preventDefault(); const id = Date.now(); await set(ref(db, `customStats/${id}`), { id, name: e.target.name.value, icon: e.target.icon.value || '📊' }); e.target.reset(); });
+            
+            document.querySelectorAll('.deleteStat').forEach(btn => btn.addEventListener('click', async (e) => { if (confirm('¿Eliminar?')) await remove(ref(db, `customStats/${e.target.dataset.id}`)); }));
+            
+            const addResultBtn = document.getElementById('addResultBtn');
+            if (addResultBtn) addResultBtn.addEventListener('click', () => { state.editingResult = 'new'; render(); });
+            
+            const cancelResult = document.getElementById('cancelResult');
+            if (cancelResult) cancelResult.addEventListener('click', () => { state.editingResult = null; render(); });
+            
+            const resultForm = document.getElementById('resultForm');
+            if (resultForm) resultForm.addEventListener('submit', async (e) => { e.preventDefault(); const positions = []; for (let i = 1; i <= 4; i++) { const driver = e.target[`driver${i}`].value.trim(); if (driver) positions.push({ position: i, driver }); } const id = Date.now(); await set(ref(db, `results/${id}`), { id, race: e.target.race.value, date: e.target.date.value, category: e.target.category.value, positions }); state.editingResult = null; render(); });
+            
+            document.querySelectorAll('.deleteResult').forEach(btn => btn.addEventListener('click', async (e) => { if (confirm('¿Eliminar?')) await remove(ref(db, `results/${e.target.dataset.id}`)); }));
+            
+            const addCircuitBtn = document.getElementById('addCircuitBtn');
+            if (addCircuitBtn) addCircuitBtn.addEventListener('click', () => { state.editingCircuit = 'new'; render(); });
+            
+            const cancelCircuit = document.getElementById('cancelCircuit');
+            if (cancelCircuit) cancelCircuit.addEventListener('click', () => { state.editingCircuit = null; render(); });
+            
+            const circuitForm = document.getElementById('circuitForm');
+            if (circuitForm) circuitForm.addEventListener('submit', async (e) => { e.preventDefault(); const id = Date.now(); await set(ref(db, `circuits/${id}`), { id, flag: e.target.flag.value, name: e.target.name.value, country: e.target.country.value, length: e.target.length.value, laps: parseInt(e.target.laps.value), warmup: e.target.warmup.value || '', playstyle: e.target.playstyle.value || '', devPreferences: e.target.devPreferences.value || '', idealCorners: e.target.idealCorners.value || '', optimalStrategies: e.target.optimalStrategies.value || '', otherTips: e.target.otherTips.value || '' }); state.editingCircuit = null; render(); });
+            
+            document.querySelectorAll('.deleteCircuit').forEach(btn => btn.addEventListener('click', async (e) => { if (confirm('¿Eliminar?')) await remove(ref(db, `circuits/${e.target.dataset.id}`)); }));
+        }
+
+        initFirebase();
+        render();
+    </script>
+</body>
+</html>
